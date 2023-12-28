@@ -1,0 +1,15 @@
+{% extends 'email_app/base.html' %}
+
+{% block title %}Enviar Correo{% endblock %}
+
+{% block content %}
+    <h2>Enviar Correo</h2>
+    <form method="post" action="{% url 'email_app:enviar_correo' usuario.id plantilla.id %}">
+        {% csrf_token %}
+        <p>Destinatario: {{ usuario.nombre }} ({{ usuario.correo }})</p>
+        <p>Asunto: {{ plantilla.asunto }}</p>
+        <p>Cuerpo:</p>
+        <pre>{{ plantilla.cuerpo }}</pre>
+        <button type="submit">Enviar Correo</button>
+    </form>
+{% endblock %}

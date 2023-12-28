@@ -1,0 +1,8 @@
+{% extends 'email_app/base.html' %}
+
+{% block title %}Correo Enviado{% endblock %}
+
+{% block content %}
+    <h2>Correo enviado con éxito</h2>
+    <p>Se ha enviado el correo a {{ usuario.nombre }} ({{ usuario.correo }}) con la plantilla "{{ plantilla.asunto }}".</p>
+{% endblock %}
