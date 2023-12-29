@@ -22,3 +22,7 @@ class EnvioCorreo(models.Model):
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     plantilla = models.ForeignKey(PlantillaCorreo, on_delete=models.CASCADE)
     enviado_en = models.DateTimeField(auto_now_add=True)
+    intentos_fallidos = models.IntegerField(default=0)
+
+    def __str__(self):
+        return f"Envío a {self.usuario} - Intentos fallidos: {self.intentos_fallidos}"

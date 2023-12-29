@@ -8,7 +8,7 @@ def enviar_correo(request, usuario_id, plantilla_id):
     usuario = get_object_or_404(Usuario, pk=usuario_id)
     plantilla = get_object_or_404(PlantillaCorreo, pk=plantilla_id)
 
-    envio_correo, created = EnvioCorreo.objects.get_or_create(
+    envio_correo, created = EnvioCorreo.objects.filter(
         usuario=usuario, plantilla=plantilla)
 
     try:
